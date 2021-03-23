@@ -36,32 +36,32 @@ export class Game {
     public Winner(): string {
 
         if (this.spaceTaken(0, 0)) {
-            if (this._board.SymbolAt(0, 0) ==
-                this._board.SymbolAt(0, 1) &&
-                this._board.SymbolAt(0, 2) == this._board.SymbolAt(0, 1)) {
+            if (this.validateColumn(0)) {
                 return this._board.SymbolAt(0, 0);
             }
         }
 
         if (this.spaceTaken(1, 0)) {
-            if (this._board.SymbolAt(1, 0) ==
-                this._board.SymbolAt(1, 1) &&
-                this._board.SymbolAt(1, 2) ==
-                this._board.SymbolAt(1, 1)) {
+            if (this.validateColumn(1)) {
                 return this._board.SymbolAt(1, 0);
             }
         }
 
         if (this.spaceTaken(2, 0)) {
-            if (this._board.SymbolAt(2, 0) ==
-                this._board.SymbolAt(2, 1) &&
-                this._board.SymbolAt(2, 2) ==
-                this._board.SymbolAt(2, 1)) {
+            if (this.validateColumn(2)) {
                 return this._board.SymbolAt(2, 0);
             }
         }
 
         return ' ';
+    }
+
+    private validateColumn(x: number): boolean {
+        return this._board.SymbolAt(x, 0) ==
+            this._board.SymbolAt(x, 1) &&
+            this._board.SymbolAt(x, 2) ==
+            this._board.SymbolAt(x, 1)
+
     }
 }
 
