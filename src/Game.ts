@@ -1,3 +1,4 @@
+
 export class Game {
     private _lastSymbol: string = ' ';
     private _board: Board = new Board();
@@ -29,7 +30,7 @@ export class Game {
     }
 
     private spaceTaken(x: number, y: number): boolean {
-        return this._board.TileAt(x, y)!.Symbol != ' '
+        return this._board.SymbolAt(x, y) != ' '
     }
 
     public Winner(): string {
@@ -38,10 +39,10 @@ export class Game {
             this.spaceTaken(0, 1) &&
             this.spaceTaken(0, 2)) {
             //if first row is full with same symbol
-            if (this._board.TileAt(0, 0)!.Symbol ==
-                this._board.TileAt(0, 1)!.Symbol &&
-                this._board.TileAt(0, 2)!.Symbol == this._board.TileAt(0, 1)!.Symbol) {
-                return this._board.TileAt(0, 0)!.Symbol;
+            if (this._board.SymbolAt(0, 0) ==
+                this._board.SymbolAt(0, 1) &&
+                this._board.SymbolAt(0, 2) == this._board.SymbolAt(0, 1)) {
+                return this._board.SymbolAt(0, 0);
             }
         }
 
@@ -50,11 +51,11 @@ export class Game {
             this.spaceTaken(1, 1) &&
             this.spaceTaken(1, 2)) {
             //if middle row is full with same symbol
-            if (this._board.TileAt(1, 0)!.Symbol ==
-                this._board.TileAt(1, 1)!.Symbol &&
-                this._board.TileAt(1, 2)!.Symbol ==
-                this._board.TileAt(1, 1)!.Symbol) {
-                return this._board.TileAt(1, 0)!.Symbol;
+            if (this._board.SymbolAt(1, 0) ==
+                this._board.SymbolAt(1, 1) &&
+                this._board.SymbolAt(1, 2) ==
+                this._board.SymbolAt(1, 1)) {
+                return this._board.SymbolAt(1, 0);
             }
         }
 
@@ -63,11 +64,11 @@ export class Game {
             this.spaceTaken(2, 1) &&
             this.spaceTaken(2, 2)) {
             //if middle row is full with same symbol
-            if (this._board.TileAt(2, 0)!.Symbol ==
-                this._board.TileAt(2, 1)!.Symbol &&
-                this._board.TileAt(2, 2)!.Symbol ==
-                this._board.TileAt(2, 1)!.Symbol) {
-                return this._board.TileAt(2, 0)!.Symbol;
+            if (this._board.SymbolAt(2, 0) ==
+                this._board.SymbolAt(2, 1) &&
+                this._board.SymbolAt(2, 2) ==
+                this._board.SymbolAt(2, 1)) {
+                return this._board.SymbolAt(2, 0);
             }
         }
 
@@ -95,6 +96,10 @@ class Board {
 
     public TileAt(x: number, y: number): Tile {
         return this._plays.find((t: Tile) => t.X == x && t.Y == y)!
+    }
+
+    public SymbolAt(x: number, y: number): string {
+        return this.TileAt(x, y).Symbol
     }
 
     public AddTileAt(symbol: string, x: number, y: number): void {
