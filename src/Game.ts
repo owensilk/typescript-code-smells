@@ -28,11 +28,15 @@ export class Game {
         }
     }
 
+    private spaceTaken(x: number, y: number):boolean {
+        return this._board.TileAt(x, y)!.Symbol != ' '
+    }
+
     public Winner(): string {
         //if the positions in first row are taken
-        if (this._board.TileAt(0, 0)!.Symbol != ' ' &&
-            this._board.TileAt(0, 1)!.Symbol != ' ' &&
-            this._board.TileAt(0, 2)!.Symbol != ' ') {
+        if (this.spaceTaken(0,0) &&
+            this.spaceTaken(0,1) &&
+            this.spaceTaken(0,2)) {
             //if first row is full with same symbol
             if (this._board.TileAt(0, 0)!.Symbol ==
                 this._board.TileAt(0, 1)!.Symbol &&
@@ -42,9 +46,9 @@ export class Game {
         }
 
         //if the positions in first row are taken
-        if (this._board.TileAt(1, 0)!.Symbol != ' ' &&
-            this._board.TileAt(1, 1)!.Symbol != ' ' &&
-            this._board.TileAt(1, 2)!.Symbol != ' ') {
+        if (this.spaceTaken(1,0) &&
+            this.spaceTaken(1,1) &&
+            this.spaceTaken(1,2)) {
             //if middle row is full with same symbol
             if (this._board.TileAt(1, 0)!.Symbol ==
                 this._board.TileAt(1, 1)!.Symbol &&
@@ -55,9 +59,9 @@ export class Game {
         }
 
         //if the positions in first row are taken
-        if (this._board.TileAt(2, 0)!.Symbol != ' ' &&
-            this._board.TileAt(2, 1)!.Symbol != ' ' &&
-            this._board.TileAt(2, 2)!.Symbol != ' ') {
+        if (this.spaceTaken(2,0) &&
+            this.spaceTaken(2, 1) &&
+            this.spaceTaken(2, 2)) {
             //if middle row is full with same symbol
             if (this._board.TileAt(2, 0)!.Symbol ==
                 this._board.TileAt(2, 1)!.Symbol &&
