@@ -34,11 +34,10 @@ export class Game {
     }
 
     public Winner(): string {
-        //if the positions in first row are taken
+
         if (this.spaceTaken(0, 0) &&
             this.spaceTaken(0, 1) &&
             this.spaceTaken(0, 2)) {
-            //if first row is full with same symbol
             if (this._board.SymbolAt(0, 0) ==
                 this._board.SymbolAt(0, 1) &&
                 this._board.SymbolAt(0, 2) == this._board.SymbolAt(0, 1)) {
@@ -46,11 +45,9 @@ export class Game {
             }
         }
 
-        //if the positions in first row are taken
         if (this.spaceTaken(1, 0) &&
             this.spaceTaken(1, 1) &&
             this.spaceTaken(1, 2)) {
-            //if middle row is full with same symbol
             if (this._board.SymbolAt(1, 0) ==
                 this._board.SymbolAt(1, 1) &&
                 this._board.SymbolAt(1, 2) ==
@@ -59,11 +56,9 @@ export class Game {
             }
         }
 
-        //if the positions in first row are taken
         if (this.spaceTaken(2, 0) &&
             this.spaceTaken(2, 1) &&
             this.spaceTaken(2, 2)) {
-            //if middle row is full with same symbol
             if (this._board.SymbolAt(2, 0) ==
                 this._board.SymbolAt(2, 1) &&
                 this._board.SymbolAt(2, 2) ==
