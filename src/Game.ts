@@ -34,22 +34,11 @@ export class Game {
     }
 
     public Winner(): string {
-
-        if (this.spaceTaken(0, 0)) {
-            if (this.validateColumn(0)) {
-                return this._board.SymbolAt(0, 0);
-            }
-        }
-
-        if (this.spaceTaken(1, 0)) {
-            if (this.validateColumn(1)) {
-                return this._board.SymbolAt(1, 0);
-            }
-        }
-
-        if (this.spaceTaken(2, 0)) {
-            if (this.validateColumn(2)) {
-                return this._board.SymbolAt(2, 0);
+        for (let i = 0; i < 3; i++) {
+            if (this.spaceTaken(i, 0)) {
+                if (this.validateColumn(i)) {
+                    return this._board.SymbolAt(i, 0);
+                }
             }
         }
 
